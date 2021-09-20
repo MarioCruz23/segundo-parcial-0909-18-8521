@@ -1,0 +1,383 @@
+<html> 
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    </head>
+    <body onload="init();">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <center>
+        <div class="p-3 mb-2 bg-dark">
+        <div class="calculadora">
+        <form>
+        <div class="mb-3">
+            <br>
+              <span id="resultado"></span>
+            </table>
+        </div>
+        <h5>Científica</h5>
+        <p>
+            <input type="button" id="parentesis1" class="btn-round btn-sm btn-outline-danger" value=" ( " />
+            <input type="button" id="parentesis2" class="btn-round btn-sm btn-outline-danger" value=" ) " />
+            <input type="button" id="seno" class="btn-round btn-sm btn-outline-danger" value="sin" />
+            <input type="button" id="coseno" class="btn-round btn-sm btn-outline-danger" value="cos"  />
+            <input type="button" id="tangente" class="btn-round btn-sm btn-outline-danger" value="tan" />
+            <input type="button" id="raiz" class="btn-round btn-sm btn-outline-danger" value=" √ "  />
+        </p>
+        <p>
+            <input type="button" id="potencia" class="btn-round btn-sm btn-outline-danger" value=" ^ " />
+            <input type="button" id="" class="btn-round btn-sm btn-outline-danger" value="   " />
+            <input type="button" id="porcentaje" class="btn-round btn-sm btn-outline-danger" value=" %" />
+            <input type="button" id="" class="btn-round btn-sm btn-outline-danger" value="      "  />
+            <input type="button" id="log" class="btn-round btn-sm btn-outline-danger" value="log" />
+            <input type="button" id="" class="btn-round btn-sm btn-outline-danger" value="    "  />
+        </p>
+        <br>
+        <h5>Básica</h5>
+        <p>
+            <input type="button" id="siete" class="btn-round btn-sm btn-outline-danger" value="7" />
+            <input type="button" id="ocho" class="btn-round btn-sm btn-outline-danger" value="8" />
+            <input type="button" id="nueve" class="btn-round btn-sm btn-outline-danger" value="9" />
+            <input type="button" id="" class="btn-round btn-sm btn-outline-danger" value="      "  />
+            <button type="button" id="borrar" class="btn-danger size">  DEL  </button>
+            <button type="button" id="borrartotal" class="btn-outline-danger Color1 size">  AC  </button>
+        </p>
+        <p>
+            <input type="button" id="cuatro" class="btn-round btn-sm btn-outline-danger" value="4" />
+            <input type="button" id="cinco" class="btn-round btn-sm btn-outline-danger" value="5" />
+            <input type="button" id="seis" class="btn-round btn-sm btn-outline-danger" value="6" />
+            <input type="button" id="masmenos" class="btn-round btn-sm btn-outline-danger" value="±" />
+            <input type="button" id="suma" class="btn-round btn-sm btn-outline-danger" value="+" />
+            <input type="button" id="menos" class="btn-round btn-sm btn-outline-danger" value="-" />
+        </p>
+        <p>
+            <input type="button" id="uno" class="btn-round btn-sm btn-outline-danger" value="1" />
+            <input type="button" id="dos" class="btn-round btn-sm btn-outline-danger" value="2" />
+            <input type="button" id="tres" class="btn-round btn-sm btn-outline-danger" value="3" />
+            <input type="button" id="multiplicacion" class="btn-round btn-sm btn-outline-danger" value="*" />
+            <input type="button" id="division" class="btn-round btn-sm btn-outline-danger" value="/" />
+            <input type="button" id="pi" class="btn-round btn-sm btn-outline-danger" value="π" />
+        </p>
+        <p>
+            <input type="button" id="" class="btn-round btn-sm btn-outline-danger" value="      "  />
+            <input type="button" id="cero" class="btn-round btn-sm btn-outline-danger" value="0" />
+            <input type="button" id="punto" class="btn-round btn-sm btn-outline-danger" value="." />
+            <input type="button" id="" class="btn-round btn-sm btn-outline-danger" value="      "  />
+            <button type="button" id="igual" class="btn-outline-danger Color1 size">=</button>
+            <input type="button" id="" class="btn-round btn-sm btn-outline-danger" value="      "  />
+        </p>
+        </form>
+            <style>
+                .btn-round {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    background-color: #808080; 
+                    color: white;
+                }
+                .Color2{
+                    background-color: transparent;
+                }
+                .size{
+                    width: 40px;
+                    height: 40px;
+                }
+                .Color1{
+                    background-color: #808080; 
+                    color: white;
+                }
+                .calculadora { border: 3px ridge; width: 250px;text-align: center;
+                    background-color: #808080; 
+                }
+                #textoPantalla { width: 185px; border: 2px black solid; text-align: right; 
+                    position: relative; left: 23px;  padding: 0px 5px;
+                    background-color: white; font-family: "courier new"; 
+                    overflow: hidden;
+                }
+                .calculadora [type=button] { width: 35px; padding: 0;  
+                }
+
+                .calculadora input.largo { color: red; width: 60px; 
+                }
+                #resultado{
+                    display:block;
+                    text-align: center;
+                    color: white;
+                    font-size: 20px;
+                    margin-bottom: 50px;
+                    width:200px;
+                    height: 50px;
+                    line-height: 100px;
+                    background-color:#808080; 
+                  }
+            </style>
+            <script>
+                var operandoa;
+                var operandob;
+                var operacion;
+                function init(){
+                    var resultado = document.getElementById("resultado");
+                    var borrar = document.getElementById("borrar");
+                    var borrartotal = document.getElementById("borrartotal");
+                    var punto = document.getElementById("punto");
+                    var parentesis1 = document.getElementById("parentesis1");
+                    var parentesis2 = document.getElementById("parentesis2");
+                    var seno = document.getElementById("seno");
+                    var coseno = document.getElementById("coseno");
+                    var tangente = document.getElementById("tangente");
+                    var raiz = document.getElementById("raiz");
+                    var potencia = document.getElementById("potencia");
+                    var porcentaje = document.getElementById("porcentaje");
+                    var log = document.getElementById("log");
+                    var masmenos = document.getElementById("masmenos");
+                    var suma = document.getElementById("suma");
+                    var menos = document.getElementById("menos");
+                    var multiplicacion = document.getElementById("multiplicacion");
+                    var division = document.getElementById("division");
+                    var pi = document.getElementById("pi");
+                    var igual = document.getElementById("igual");
+                    var uno = document.getElementById("uno");
+                    var dos = document.getElementById("dos");
+                    var tres = document.getElementById("tres");
+                    var cuatro = document.getElementById("cuatro");
+                    var cinco = document.getElementById("cinco");
+                    var seis = document.getElementById("seis");
+                    var siete = document.getElementById("siete");
+                    var ocho = document.getElementById("ocho");
+                    var nueve = document.getElementById("nueve");
+                    var cero = document.getElementById("cero");
+                    
+                    uno.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "1";
+                    }
+                    dos.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "2";
+                    }
+                    tres.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "3";
+                    }
+                    cuatro.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "4";
+                    }
+                    cinco.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "5";
+                    }
+                    seis.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "6";
+                    }
+                    siete.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "7";
+                    }
+                    ocho.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "8";
+                    }
+                    nueve.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "9";
+                    }
+                    cero.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "0";
+                    }
+                    punto.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + ".";
+                    }
+                    parentesis1.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "(";
+                    }
+                    parentesis2.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + ")";
+                    }
+                    seno.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "sin(";
+                    }
+                    coseno.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "cos(";
+                    }
+                    tangente.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "tan(";
+                    }
+                    log.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "log(";
+                    }
+                    raiz.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "√";
+                    }
+                    potencia.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "^(";
+                    }
+                    porcentaje.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "%";
+                    }
+                    masmenos.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "±";
+                    }
+                    pi.onclick = function(e){
+                        resultado.textContent = resultado.textContent  + "π";
+                    }
+                    borrar.onclick = function(e){
+                        resetear();
+                    }
+                    borrartotal.onclick = function(e){
+                        resetear();
+                    }
+                    suma.onclick = function(e){
+                        operandoa = resultado.textContent;
+                        operacion = "+";
+                        limpiar();
+                    }
+                    menos.onclick = function(e){
+                        operandoa = resultado.textContent;
+                        operacion = "-";
+                        limpiar();
+                    }
+                    multiplicacion.onclick = function(e){
+                        operandoa = resultado.textContent;
+                        operacion = "*";
+                        limpiar();
+                    }
+                    division.onclick = function(e){
+                        operandoa = resultado.textContent;
+                        operacion = "/";
+                        limpiar();
+                    }
+                    seno.onclick = function(e){
+                        operandoa = resultado.textContent;
+                        operacion="sin(";
+                        limpiar();
+                    }
+                    coseno.onclick = function(e){
+                        operandoa = resultado.textContent;
+                        operacion="cos(";
+                        limpiar();
+                    }
+                    tangente.onclick = function(e){
+                        operandoa = resultado.textContent;
+                        operacion="tan(";
+                        limpiar();
+                    }
+                    log.onclick = function(e){
+                        operandoa = resultado.textContent;
+                        operacion="log(";
+                        limpiar();
+                    }
+                    raiz.onclick = function(e){
+                        operandoa = resultado.textContent;
+                        operacion="√";
+                        limpiar();
+                    }
+                    potencia.onclick = function(e){
+                        operandoa = resultado.textContent;
+                        operacion="^(";
+                        limpiar();
+                    }
+                    porcentaje.onclick = function(e){
+                        operandoa = resultado.textContent;
+                        operacion="%";
+                        limpiar();
+                    }
+                    masmenos.onclick = function(e){
+                        operandoa = resultado.textContent;
+                        operacion="±";
+                        limpiar();
+                    }
+                    pi.onclick = function(e){
+                        operandoa = resultado.textContent;
+                        operacion="π";
+                        limpiar();
+                    }
+                    igual.onclick = function(e){
+                        operandob = resultado.textContent;
+                        resolver();
+                    }
+                    function limpiar(){
+                        resultado.textContent = "";
+                    }
+                      function resetear(){
+                        resultado.textContent = "";
+                        operandoa = 0;
+                        operandob = 0;
+                        operacion = "";
+                    }
+                    function resolver(){
+                        var res = 0;
+                        switch(operacion){
+                            case "+":
+                              res = parseFloat(operandoa) + parseFloat(operandob);
+                              break;
+                            case "-":
+                                res = parseFloat(operandoa) - parseFloat(operandob);
+                                break;
+                            case "*":
+                                res = parseFloat(operandoa) * parseFloat(operandob);
+                                break;
+                            case "/":
+                              res = parseFloat(operandoa) / parseFloat(operandob);
+                              break;
+                            case "sin(":
+                                res = parseFloat(Math.sin(operandoa));
+                                break;
+                            case "cos(":
+                                res = parseFloat(Math.cos(operandoa));
+                                break;
+                            case "tan(":
+                                res = parseFloat(Math.tan(operandoa));
+                                break;
+                            case "√":
+                                res = parseFloat(Math.sqrt(operandoa));
+                                break;
+                            case "log(":
+                                res = parseFloat(Math.log10(operandoa));
+                                break;
+                            case "^(":
+                                res = parseFloat(Math.pow(operandoa , operandob));
+                                break;
+                            case "%":
+                                res = parseFloat(operandoa) / parseFloat(100);
+                                break;
+                            case "±":
+                                
+                                break;
+                            case "π":
+                                res = parseFloat(operandoa) * parseFloat(3.141592654);
+                                break;
+                        }
+                        resetear();
+                        resultado.textContent = res;
+                    }
+                }
+            </script>
+        </div>
+        <br>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Datos del Alumno
+        </button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Datos del Alumno</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Carné: <b><label class="form-label"> 0909-18-8521.</label></b></p>
+                <p>Nombre completo: <b>Mario Alberto Cruz Peña.</b></p>
+                <p>Fecha y hora de finalización: <b>Domingo 19</b></p>
+                <p>Nota esperada según redimiento: <b>5 pts.</b></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    </div>    
+    </center>
+    </body>
+</html>
